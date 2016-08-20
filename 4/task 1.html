@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 1</title>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <form name="form1">
+  Username: <input id="name" name="name"><br>
+  Password: <input id="pass" name="pass"><br>
+  Retype-Password: <input id="repass" name="repass"><br><br>
+  <input type="button" onclick="reset()" value="Reset">
+  <input type="button" onclick="validateForm()" value="Submit">
+  </form>
+  <p id="task1"></p>
+  <script>
+    function reset() {
+      document.getElementById("form1").reset();
+    }
+    function submit() {
+      document.getElementById("form1").submit();
+    }
+    function validateForm() {
+      var name = document.forms["form1"]["name"].value;
+      var pass = document.forms["form1"]["pass"].value;
+      var repass = document.forms["form1"]["repass"].value;
+      if (name == null || name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+       if (pass == null || pass == "") {
+        alert("Password must be filled out");
+        return false;
+      }
+       if (repass == null || repass == "") {
+        alert("Retype-Password must be filled out");
+        return false;
+      }
+      if (pass != repass) {
+        alert("Password and Retype-Password not matched!");
+        return false;
+      }
+      if (name != null && name != "" && pass != null && pass != "" && repass != null && repass != "" && pass == repass) {
+        alert("Signed up successful!");
+        return true;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Answers</title>
+</head>
+<body>
+	<p id="name"></p>
+	<p id="dob"></p>
+	<p id="email"></p>
+	<p id="major"></p>
+	<p id="postgrad"></p>
+	<p id="field"></p>
+	<p id="rate"></p>
+	<p id="opinion"></p>
+<script>
+function getParams(){
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1) {
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i<pairs.length; i++){
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+}
+}
+return params;
+}
+params = getParams();
+name = unescape(params["name"]);
+dob = unescape(params["dob"]);
+email = unescape(params["email"]);
+major = unescape(params["major"]);
+postgrad = unescape(params["postgrad"]);
+field = unescape(params["field"]);
+rate = unescape(params["rate"]);
+opinion = unescape(params["opinion"]);
+
+document.getElementById("name").innerHTML = "1.Name: " + name;
+document.getElementById("dob").innerHTML = "2.Date of Birth: " + dob;
+document.getElementById("email").innerHTML = "3.Email: " + email;
+document.getElementById("major").innerHTML = "4.Your Specialty: " + major;
+document.getElementById("postgrad").innerHTML = "5.Post-Graduate? " + postgrad;
+document.getElementById("field").innerHTML = "6.Working Field: " + field;
+document.getElementById("rate").innerHTML = "7.Rating USTH environment: " + rate;
+document.getElementById("opinion").innerHTML = "8.Your opinion: " + opinion;
+</script>
+</body>
+</html>

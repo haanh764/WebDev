@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <title>Task 3</title>
+</head>
+<body>
+  <div class="header">
+  </div>
+  <div class="wrapper"></div>
+  <div class="container">
+  <div class="identElement"></div>
+  <span style="line-height: 40px;">
+  <form name="survey" type="get" class="content" action="result.html">
+  <h1 span style="text-align: left;color: #000000;font-family: sans-serif; font-size: 24px;">STUDENT SURVEY</h1>
+  1. Name: <br><input id="name" name="name"><br>
+  2. Date of Birth: <br><input id="dob" name="dob" placeholder="DD/MM/YY"></br>
+  3. Email: <br><input id="email" name="email" placeholder="example@gmail.com"><br>
+  4. Your Specialty: <br><select size="1" id="major" name="major">
+    <option value=""> - Select - </option>
+    <option value="Space and Aeronautics">Space and Aeronautics</option>
+    <option value="Pharmacological, Medical and Agronomical Biotechnology">Pharmacological, Medical and Agronomical Biotechnology</option>
+    <option value="Water-Environment-Oceanography">Water-Environment-Oceanography</option>
+    <option value="Energy">Energy</option>
+    <option value="Advanced Material Science and Nanotechnology">Advanced Material Science and Nanotechnology</option>
+    <option value="Information Communication and Technology">Information Communication and Technology</option>
+    <option value="Food Science and Technology">Food Science and Technology</option>
+    <option value="Medical Science and Technology">Medical Science and Technology</option>
+  </select>
+  </br>
+  5. Do you want to pursue a post-graduate degree? <br><input type="radio" id="postgrad" name="postgrad" value="Yes" onclick="enableElement(this.form.work_permit);">Yes <input type="radio" id="postgrad" name="postgrad" value="No" onclick="enableElement(this.form.work_permit);">No</br>
+  6. Which area you want to work after graduation? <br><select size="1" id="field" name="field">
+    <option value=""> - Select - </option>
+    <option value="Education">Education</option>
+    <option value="Government">Government</option>
+    <option value="Financial and Banking">Financial and Banking</option>
+    <option value="Research">Research</option>
+    <option value="Construction">Construction</option>
+    <option value="Others">Others</option>
+  </select>
+  </br>
+  7. How do you rate the study environment at USTH? </br><input type="radio" id="rate" name="rate" value="Very Bad" onclick="enableElement(this.form.work_permit);">Very Bad<input type="radio" id="rate" name="rate" value="Bad" onclick="enableElement(this.form.work_permit);">Bad<input type="radio" id="rate" name="rate" value="Quite good" onclick="enableElement(this.form.work_permit);">Quite good<input type="radio" id="rate" name="rate" value="Good" onclick="enableElement(this.form.work_permit);">Good<input type="radio" id="rate" name="rate" value="Very Good" onclick="enableElement(this.form.work_permit);">Very Good</br>
+  8. Your opinion to improve study environment at USTH:</br><textarea id="opinion" name="opinion" rows="9" cols="55"></textarea></br>
+  <input type="button" onclick="validateForm()" class="button1" value="SEND">
+  <input type="submit" id="answer" class="button1" name="answer" value="ANSWERS">
+  </form>
+  </span>
+  </div>
+  <p id="task1"></p>
+  <script>
+    function validateForm() {
+      var name = document.forms["survey"]["name"].value;
+      var dob = document.forms["survey"]["dob"].value;
+      var email = document.forms["survey"]["email"].value;
+      var major = document.forms["survey"]["major"].value;
+      var postgrad = document.forms["survey"]["postgrad"].value;
+      var field = document.forms["survey"]["field"].value;
+      var rate = document.forms["survey"]["rate"].value;
+      var opinion = document.forms["survey"]["opinion"].value;
+      for (var i=0; i<8;i++) {
+        var answ = true;
+        switch(i) {
+          case 0:
+            if (name.length == 0)
+              answ = false;
+            break;
+          case 1:
+            if (dob.length == 0)
+              answ = false;
+            break;
+          case 2:
+            if (!checkMail(email))
+              answ = false;
+            break;
+          case 3:
+            if (major == -1)
+              answ = false;
+            break;
+          case 4:
+            if (postgrad.length == 0)
+              answ = false;
+            break;
+          case 5:
+            if (field == -1)
+              answ = false;
+            break;
+        }
+      }
+
+    }
+    function checkMail(mail) {
+      var pattern = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/;
+      if (email == '' || !pattern.test(email)) {
+        alert("Not valid email. Please enter again!");
+        return false;
+      }
+    }
+    function checkDate {
+
+    }
+
+  </script>
+</body>
+</html>

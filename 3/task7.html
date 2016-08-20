@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 7</title>
+</head>
+<body>
+  <p>Enter a random number: </p>
+  <input type="text" id="num" onkeyup="reverse_num()"></input>
+  <p>The reverse of this number is: <span id="rev_num"></span></p>
+  <script>
+    function reverse_num () {
+      var num = document.getElementById("num").value;
+      var revNum = num + "";
+      var revNum = revNum.split("").reverse().join("");
+      document.getElementById("rev_num").innerHTML = revNum;
+    }
+  </script>
+</body>
+</html>

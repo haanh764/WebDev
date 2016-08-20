@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 3</title>
+</head>
+<body>
+  <p>Click the button below to play</p>
+  <button onclick="match()">Play Now!</button>
+  <p id="task3"></p>
+  <script>
+    function match() {
+      var guessNum = prompt("Enter a number between 1-10:", "5");
+      var generateNum = Math.floor((Math.random() * 10) + 1);
+      if (guessNum == generateNum) {
+        document.getElementById("task3").innerHTML = "Good Work!";
+      }
+      else {
+        document.getElementById("task3").innerHTML = "Not matched!";
+      }
+    }
+  </script>
+</body>
+</html>
